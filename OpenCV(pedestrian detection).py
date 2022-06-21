@@ -48,16 +48,15 @@ while True:
         cv2.putText(frame, f'P{count}', (x, y), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 255), 2)
         count += 1
 # Boja je jednaka prema broju pjesaka detektovanih na videu
-
-        if count == 0:
-            boja = 0,0,0 #crna
-        elif count < 3:
-            boja = 0,128,0 #zelena
-        elif count > 3:
-            boja = 0,255,255 #zuta
-        pass
-        cv2.putText(frame, f'Broj pjesaka :{count}', (40, 20), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (boja), 2)
-        print("Pjesak detektovan :", count,"\n""Fps :", fps)
+    if count == 0:
+        boja = 0,0,0 #crna
+    elif count < 3:
+        boja = 0,128,0 #zelena
+    elif count > 3:
+        boja = 0,255,255 #zuta
+    pass
+    cv2.putText(frame, f'Broj pjesaka :{count}', (40, 20), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (boja), 2)
+    print("Pjesak detektovan :", count,"\n""Fps :", fps)
     cv2.imshow('output', frame)
 
 #Prekidanje videa tasterom Esc
