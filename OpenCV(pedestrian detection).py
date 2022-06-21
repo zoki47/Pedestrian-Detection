@@ -35,19 +35,19 @@ while True:
 
     pedestrians = np.array([[x, y, x + w, y + h] for (x, y, w, h) in pedestrians])
 
-# primjena metode non-maxima suppression da se ukloni preklapanje okvira detektovanih pjesaka
+#primjena metode non-maxima suppression da se ukloni preklapanje okvira detektovanih pjesaka
     #pedestrians = non_max_suppression(pedestrians, probs=None, overlapThresh=0.5)
     
     count = 0
     # displej fpsa (frames per second)
     cv2.putText(frame, f'FPS :{fps}', (40, 40), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 0, 0), 2)
-#  Oznacavanje pjesaka 
+#Oznacavanje pjesaka 
     for x, y, w, h in pedestrians:
         cv2.rectangle(frame, (x, y), (w, h), (0, 0, 255), 2)
         cv2.rectangle(frame, (x, y - 20), (w,y), (0, 0, 255), -1)
         cv2.putText(frame, f'P{count}', (x, y), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 255), 2)
         count += 1
-# Boja je jednaka prema broju pjesaka detektovanih na videu
+#Boja je jednaka prema broju pjesaka detektovanih na videu
     if count == 0:
         boja = 0,0,0 #crna
     elif count < 3:
